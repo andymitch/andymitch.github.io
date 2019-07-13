@@ -3,10 +3,8 @@ var fs = require("fs");
 var path = require('path');
 const PORT_A = 2222;
 
-////////////////////////////////////////////////////////////////////////////////
-
 var server = http.createServer(function(req, res) {
-    if (req.url != '/favicon.ico') console.log('request was made: ' + req.url);
+    //if (req.url != '/favicon.ico') console.log('request was made: ' + req.url);
     res.writeHead(200, { 'Content-Type': 'text/html' });
 
     var index = fs.createReadStream(__dirname + '/website/index.html', 'utf8');
