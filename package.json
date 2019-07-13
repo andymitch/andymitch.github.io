@@ -1,0 +1,19 @@
+{
+  "name": "nodesite",
+  "version": "1.0.0",
+  "description": "personal projects",
+  "main": "NodeHTML.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andymitch/NodeSite.git"
+  },
+  "author": "Andrew Mitchell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andymitch/NodeSite/issues"
+  },
+  "homepage": "https://github.com/andymitch/NodeSite#readme"
+}
