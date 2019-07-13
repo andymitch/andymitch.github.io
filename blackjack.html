@@ -164,7 +164,7 @@
     let tie = document.getElementById("tie");
     let cards = document.getElementsByClassName("card");
     let play_again = document.getElementById("again");
-    let stay = document.getElementById("stay");
+    let _stay = document.getElementById("stay");
 
     class Card {
         constructor(rank, face) {
@@ -248,7 +248,7 @@
             console.log("Lose");
         }
         play_again.style.opacity = 1;
-        stay.style.animation = none;
+        _stay.style.animation = none;
     }
 
     function hit() {
@@ -262,7 +262,7 @@
             points_d.innerHTML = Number(points_d.innerHTML) + 1;
             play_again.style.opacity = 1;
             console.log("Bust");
-        } else if (total(player) == 21) stay.style.animation = "glowing 2000ms infinite";
+        } else if (total(player) == 21) _stay.style.animation = "glowing 2000ms infinite";
     }
 
     function again() {
