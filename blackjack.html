@@ -255,8 +255,8 @@
             play_again.style.opacity = 1;
             console.log("Bust");
         } else if (total(player) == 21) {
-            for (i = 0; i < cards.length; i++)
-                if (cards[i].src != "./img/blank.png") cards[i].style.animation = "glowing 5000ms infinite";
+            for (i = 0; i < count_p; i++)
+                document.getElementById("p" + count_p).style.animation = "glowing 2000ms infinite";
         }
     }
 
