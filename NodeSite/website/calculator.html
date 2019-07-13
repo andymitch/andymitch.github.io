@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+
+<head>
+    <style>
+        body {
+            background-color: #FF0051;
+            background-image: linear-gradient(to bottom right, #543FB5, #FF0051);
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        button {
+            background-color: rgb(0, 255, 213);
+            border-style: none;
+            width: 200px;
+            height: 90px;
+            margin-bottom: 5.2px;
+            border-radius: 20px;
+            font-size: 40px;
+            letter-spacing: 1px;
+        }
+        
+        button:focus {
+            outline: 0;
+        }
+        
+        button:hover {
+            background-color: rgb(0, 189, 157);
+        }
+        
+        button:active {
+            background-color: rgb(0, 58, 48);
+        }
+        
+        #answer {
+            color: aliceblue;
+            font-size: 1in;
+        }
+        
+        #buttons {
+            margin-top: 10%;
+            margin-bottom: 0;
+        }
+        
+        .op {
+            background-color: rgb(202, 202, 202);
+        }
+    </style>
+</head>
+
+<body>
+    <CENTER>
+        <div id="buttons">
+            <button onclick="calc(1)">1</button>
+            <button onclick="calc(2)">2</button>
+            <button onclick="calc(3)">3</button>
+            <br>
+            <button onclick="calc(4)">4</button>
+            <button onclick="calc(5)">5</button>
+            <button onclick="calc(6)">6</button>
+            <br>
+            <button onclick="calc(7)">7</button>
+            <button onclick="calc(8)">8</button>
+            <button onclick="calc(9)">9</button>
+            <br>
+            <button class="op" onclick="calc('+')">+</button>
+            <button onclick="calc(0)">0</button>
+            <button class="op" onclick="calc('-')">-</button>
+            <br>
+            <button class="op" onclick="window.location.href = './home.html';">home</button>
+            <button class="op" onclick="equals()">=</button>
+            <button class="op" onclick="clr()">clear</button>
+        </div>
+        <p id="answer"></p>
+    </CENTER>
+</body>
+<script>
+    var ten = 1;
+    var first = 0;
+    var second = 0;
+    var sign = '';
+    var ans = document.getElementById("answer");
+
+    function calc(b) {
+        if (sign == '') {
+            if (b == '+') {
+                //sign
+                sign = b;
+                ans.innerHTML = ans.innerHTML + ' ' + b + ' ';
+                ten = 0;
+            } else if (b == '-') {
+                //sign
+                sign = b;
+                ans.innerHTML = ans.innerHTML + ' ' + b + ' ';
+                ten = 0;
+            } else {
+                //first number
+                first = (first * ten) + b;
+                ans.innerHTML = first;
+                ten = 10;
+            }
+        } else {
+            if (b == '+') {
+                equals();
+                ans.innerHTML = ans.innerHTML + ' ' + b + ' ';
+                sign = b;
+            } else if (b == '-') {
+                equals();
+                ans.innerHTML = ans.innerHTML + ' ' + b + ' ';
+                sign = b;
+            } else {
+                //second number
+                second = (second * ten) + b;
+                ans.innerHTML = ans.innerHTML + b;
+                ten = 10;
+            }
+        }
+        console.log(first + ' ' + sign + ' ' + second);
+    }
+
+    function equals() {
+        if (sign == '+') first += second;
+        else first -= second;
+        second = 0;
+        ans.innerHTML = first;
+        console.log('= ' + ans.innerHTML);
+    }
+
+    function clr() {
+        ans.innerHTML = '';
+        sign = '';
+        ten = 1;
+        first = second = 0;
+    }
+</script>

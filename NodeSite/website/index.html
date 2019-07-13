@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+         height: 100%;
+      }
+      body{
+        background-color: #FF0051;
+        background-image: linear-gradient(to bottom right, #543FB5, #FF0051);
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Permanent Marker', cursive;
+      }
+      button{
+        font-family: 'Concert One', cursive;
+        background-color: rgb(0,0,0,0.15);
+        border-style: none;
+        width: 200px;
+        height: 90px;
+        margin-bottom: 5.2px;
+        border-radius: 20px;
+        font-size: 40px;
+        letter-spacing: 1px;
+      }
+      button:hover{
+        background-color: rgb(255,255,255,0.2);
+      }
+      button:focus{
+        outline: 0;
+      }
+      #title{
+        font-size: 60px;
+        margin-top: 15%;
+        text-shadow: 1px 1px black;
+      }
+      #link{
+        font: 15px arial, sans-serif;
+      }
+      input[type=checkbox].toggle-switch{
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        height: 3em;
+        width: 6em;
+        border-radius: 3em;
+        background-color: grey;
+        outline: 0;
+        cursor: pointer;
+        transition: 0.1s ease-in-out;
+        position: relative;
+        box-shadow: inset 0 0 15px black;
+      }
+      input[type=checkbox].toggle-switch:checked{
+        background-color: blue;
+        box-shadow: inset 0 0 2px black;
+      }
+      input[type=checkbox].toggle-switch::after{
+        content: '';
+        width: 3em;
+        height: 3em;
+        background-color: white;
+        border-radius: 3em;
+        position: absolute;
+        transform: scale(.8);
+        left: 0;
+        transition: .1s ease-in-out;
+        box-shadow: 0 0 8px black, inset 0 0 8px grey;
+      }
+      input[type=checkbox].toggle-switch:checked::after{
+        left: 3em;
+        box-shadow: 0 0 8px black, inset 0 0 5px grey;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset ="utf-8">
+  </head>
+  <body>
+    <CENTER>
+      <title>COLORS & SOUNDS!!</title>
+      <p id="title" onclick="reset()">Change my color!</p>
+      <button onclick="func(1)">blue</button>
+      <button onclick="func(2)">green</button>
+      <button onclick="func(3)">red</button>
+      <br>
+      <input type="checkbox" id="switch" class="toggle-switch" onclick="toggleSound()"><br>sound</input>
+      <br><a id="link" href="./home.html">home</a>
+      <audio loop id="blue" src="./sounds/blue.mp3"></audio>
+      <audio loop id="green" src="./sounds/green.mp3"></audio>
+      <audio loop id="red" src="./sounds/red.mp3"></audio>
+    </CENTER>
+  </body>
+</html>
+<script>
+  function toggleSound(){
+    if(document.getElementById("switch").checked){
+      console.log("sound on");
+    }else{
+      document.getElementById("blue").pause();
+      document.getElementById("green").pause();
+      document.getElementById("red").pause();
+      console.log("sound off");
+    }
+  }
+  function reset(){
+    var x = document.getElementById("title");
+    x.innerHTML = "Change my color!";
+    x.style.color = "black";
+    x.style.textShadow = ".5px .5px grey";
+    console.log("sound off");
+  }
+  function func(n){
+    var x = document.getElementById("title");
+    x.style.transition = 'all .3s';
+    switch(n){
+      case 1:
+      x.style.color = "blue";
+      x.style.textShadow = "1px 1px black";
+      x.innerHTML = "Blue";
+      console.log("blue");
+      if(document.getElementById("switch").checked){
+        document.getElementById("green").pause();
+        document.getElementById("red").pause();
+        document.getElementById("blue").currentTime = 0;
+        document.getElementById("blue").play();
+      }
+      break;
+      case 2:
+      x.style.color = "green";
+      x.style.textShadow = "1px 1px black";
+      x.innerHTML = "Green";
+      console.log("green");
+      if(document.getElementById("switch").checked){
+        document.getElementById("blue").pause();
+        document.getElementById("red").pause();
+        document.getElementById("green").currentTime = 0;
+        document.getElementById("green").play();
+      }
+      break;
+      case 3:
+      x.style.color = "red";
+      x.style.textShadow = "1px 1px black";
+      x.innerHTML = "Red";
+      console.log("red");
+      if(document.getElementById("switch").checked){
+        document.getElementById("blue").pause();
+        document.getElementById("green").pause();
+        document.getElementById("red").currentTime = 0;
+        document.getElementById("red").play();
+      }
+      break;
+    }
+  }
+</script>

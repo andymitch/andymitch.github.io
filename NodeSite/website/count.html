@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FF0051;
+            background-image: linear-gradient(to bottom right, #543FB5, #FF0051);
+            height: 100%;
+            margin: 10%;
+            font-family: 'Permanent Marker';
+            font-size: 40px;
+            color: blanchedalmond;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        button {
+            background-color: blanchedalmond;
+            border-style: none;
+            width: 200px;
+            height: 90px;
+            margin-bottom: 5.2px;
+            border-radius: 20px;
+            font-size: 40px;
+            letter-spacing: 1px;
+        }
+        
+        button:focus {
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <CENTER>
+        <p>count: </p>
+        <p id='count'>0</p>
+        <br>
+        <button onclick='func()'>+</button>
+        <br><br>
+        <a href='./home.html'>home</a>
+    </CENTER>
+</body>
+
+</html>
+<script>
+    function func() {
+        var x = document.getElementById("count");
+        x.innerHTML = Number(x.innerHTML) + 1;
+    }
+</script>

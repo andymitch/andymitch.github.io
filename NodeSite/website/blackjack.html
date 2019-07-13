@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        body {
+            background: url("/greenFelt.jpg");
+            background-color: darkgreen;
+            z-index: 0;
+            position: relative;
+            margin-left: 11%;
+        }
+        
+        p {
+            margin: 8px;
+            font-size: 30pt;
+            text-align: left;
+        }
+        
+        button {
+            background-color: indianred;
+            border-style: none;
+            width: 200px;
+            height: 90px;
+            margin-bottom: 5.2px;
+            border-radius: 20px;
+            font-size: 40px;
+            letter-spacing: 1px;
+        }
+        
+        button:focus {
+            outline: 0;
+        }
+        
+        #hand {
+            height: 3.2in;
+            position: static;
+            margin-top: 10px;
+        }
+        
+        .card {
+            height: 2in;
+            width: 1.25in;
+            display: inline-table;
+        }
+        
+        #btn {
+            margin-left: 16%;
+        }
+        
+        #score {
+            display: inline-flex;
+            margin-left: 50%;
+            transform: translate(-42%, 0);
+        }
+        
+        .banner {
+            position: absolute;
+            margin-top: 0;
+            left: 50%;
+        }
+        
+        .else {
+            position: absolute;
+            margin-top: 10px;
+            left: 10%;
+        }
+        
+        .title {
+            display: inline-flex;
+            float: left;
+        }
+        
+        #win,
+        #lose,
+        #bust,
+        #tie {
+            position: absolute;
+            transform: translate(-60%, 0);
+            opacity: 0;
+        }
+        
+        #again {
+            position: absolute;
+            transform: translate(-63%, 3.2in);
+            font-size: 20px;
+            display: flex;
+            opacity: 0;
+        }
+        
+        #yes {
+            background-color: green;
+        }
+        
+        #no {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <CENTER>
+        <!--<img id="deck" src="./cards/back.png">-->
+        <div class="else">
+            <div id="dealer">
+                <p class="title">Dealer</p>
+                <img id="d0" class="card" src="/back.png">
+                <img id="d1" class="card" src="/back.png">
+                <img id="d2" class="card" src="/back.png">
+                <img id="d3" class="card" src="/back.png">
+                <img id="d4" class="card" src="/back.png">
+            </div>
+            <div id="hand">
+                <p class="title">Player</p>
+                <img id="p0" class="card" src="/back.png">
+                <img id="p1" class="card" src="/back.png">
+                <img id="p2" class="card" src="/back.png">
+                <img id="p3" class="card" src="/back.png">
+                <img id="p4" class="card" src="/back.png">
+            </div>
+            <div id="btn">
+                <button onclick="stay()">stay</button>
+                <button onclick="hit()">hit</button>
+            </div>
+            <br>
+            <div id="score">
+                <p>You: </p>
+                <p id="points_p">0</p>
+                <p>Dealer: </p>
+                <p id="points_d">0</p>
+            </div>
+        </div>
+        <div class="banner">
+            <img src="/winner.png" alt="winner" id="win">
+            <img src="/loser.png" alt="loser" id="lose">
+            <img src="/bust.png" alt="bust" id="bust">
+            <img src="/tie.png" alt="tie" id="tie">
+            <div id="again">
+                <button id="yes" onclick="again()">YES</button>
+                <p style="text-align: center">Play Again?</p>
+                <button id="no" onclick="location.href='/home.html'">NO</button>
+            </div>
+        </div>
+    </CENTER>
+</body>
+<script>
+    let win = document.getElementById("win");
+    let lose = document.getElementById("lose");
+    let bust = document.getElementById("bust");
+    let tie = document.getElementById("tie");
+    let cards = document.getElementsByClassName("card");
+    let play_again = document.getElementById("again");
+
+    class Card {
+        constructor(rank, face) {
+            this.rank = rank;
+            this.face = face;
+        }
+    }
+
+    let deck = []
+    let player = [];
+    let dealer = [];
+    let count_p = 0;
+    let count_d = 0;
+
+    function shuffle(deck) {
+        deck.sort(() => Math.random() - 0.5);
+    }
+
+    function get(suit) {
+        for (i = 2; i < 11; i++) deck.push(new Card(i, i + suit));
+        deck.push(new Card(10, 'J' + suit));
+        deck.push(new Card(10, 'Q' + suit));
+        deck.push(new Card(10, 'K' + suit));
+        deck.push(new Card(11, 'A' + suit));
+    }
+    get('C');
+    get('D');
+    get('H');
+    get('S');
+
+    function deal() {
+        card = deck[deck.length - 1];
+        deck.pop();
+        return card;
+    }
+
+    function hitDealer() {
+        let card = deal();
+        dealer.push(card);
+        document.getElementById("d" + count_d).src = "/" + card.face + ".png";
+        count_d += 1;
+        console.log("Dealer: " + total(dealer));
+    }
+
+    function start() {
+        shuffle(deck);
+        for (i = 0; i < cards.length; i++) cards[i].src = "/blank.png";
+        hitDealer();
+    }
+
+    function total(hand) {
+        let total = 0;
+        let ace = 0;
+        for (i = 0; i < hand.length; i++) {
+            if (hand[i].rank == 11) ace += 1;
+            else if (hand[i].rank == 10) total += 10;
+            else total += hand[i].rank;
+        }
+        if (ace == 1) {
+            if (total < 11) total += 11;
+            else total += 1;
+        } else if (ace == 2) {
+            if (total < 10) total += 12;
+            else total += 2;
+        } else if (ace > 2) total += ace;
+        return total;
+    }
+
+    function stay() {
+        while (total(dealer) < 16) hitDealer();
+        if (total(player) > total(dealer) || total(dealer) > 21) {
+            win.style.opacity = 1;
+            points_p.innerHTML = Number(points_p.innerHTML) + 1;
+            console.log("Win");
+        } else if (total(player) == total(dealer)) {
+            tie.style.opacity = 1;
+            console.log("Tie");
+        } else {
+            lose.style.opacity = 1;
+            points_d.innerHTML = Number(points_d.innerHTML) + 1;
+            console.log("Lose");
+        }
+        play_again.style.opacity = 1;
+    }
+
+    function hit() {
+        let card = deal();
+        player.push(card);
+        document.getElementById("p" + count_p).src = "/" + card.face + ".png";
+        count_p += 1;
+        console.log("Player: " + total(player));
+        if (total(player) > 21) {
+            bust.style.opacity = 1;
+            points_d.innerHTML = Number(points_d.innerHTML) + 1;
+            play_again.style.opacity = 1;
+            console.log("Bust");
+        }
+    }
+
+    function again() {
+        for (i = 0; i < player.length; i++) deck.push(player[i]);
+        for (i = 0; i < dealer.length; i++) deck.push(dealer[i]);
+        player = [];
+        dealer = [];
+        win.style.opacity = lose.style.opacity = bust.style.opacity = play_again.style.opacity = tie.style.opacity = 0;
+        count_p = count_d = 0;
+        start();
+    }
+    start();
+</script>
