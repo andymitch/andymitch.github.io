@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            background: url("/img/greenFelt.jpg");
+            background: url("./img/greenFelt.jpg");
             background-color: darkgreen;
             z-index: 0;
             position: relative;
@@ -103,19 +103,19 @@
         <div class="else">
             <div id="dealer">
                 <p class="title">Dealer</p>
-                <img id="d0" class="card" src="/img/back.png">
-                <img id="d1" class="card" src="/img/back.png">
-                <img id="d2" class="card" src="/img/back.png">
-                <img id="d3" class="card" src="/img/back.png">
-                <img id="d4" class="card" src="/img/back.png">
+                <img id="d0" class="card" src="./img/back.png">
+                <img id="d1" class="card" src="./img/back.png">
+                <img id="d2" class="card" src="./img/back.png">
+                <img id="d3" class="card" src="./img/back.png">
+                <img id="d4" class="card" src="./img/back.png">
             </div>
             <div id="hand">
                 <p class="title">Player</p>
-                <img id="p0" class="card" src="/img/back.png">
-                <img id="p1" class="card" src="/img/back.png">
-                <img id="p2" class="card" src="/img/back.png">
-                <img id="p3" class="card" src="/img/back.png">
-                <img id="p4" class="card" src="/img/back.png">
+                <img id="p0" class="card" src="./img/back.png">
+                <img id="p1" class="card" src="./img/back.png">
+                <img id="p2" class="card" src="./img/back.png">
+                <img id="p3" class="card" src="./img/back.png">
+                <img id="p4" class="card" src="./img/back.png">
             </div>
             <div id="btn">
                 <button onclick="stay()">stay</button>
@@ -130,10 +130,10 @@
             </div>
         </div>
         <div class="banner">
-            <img src="/img/winner.png" alt="winner" id="win">
-            <img src="/img/loser.png" alt="loser" id="lose">
-            <img src="/img/bust.png" alt="bust" id="bust">
-            <img src="/img/tie.png" alt="tie" id="tie">
+            <img src="./img/winner.png" alt="winner" id="win">
+            <img src="./img/loser.png" alt="loser" id="lose">
+            <img src="./img/bust.png" alt="bust" id="bust">
+            <img src="./img/tie.png" alt="tie" id="tie">
             <div id="again">
                 <button id="yes" onclick="again()">YES</button>
                 <p style="text-align: center">Play Again?</p>
@@ -188,14 +188,14 @@
     function hitDealer() {
         let card = deal();
         dealer.push(card);
-        document.getElementById("d" + count_d).src = "/img/" + card.face + ".png";
+        document.getElementById("d" + count_d).src = "./img/" + card.face + ".png";
         count_d += 1;
         console.log("Dealer: " + total(dealer));
     }
 
     function start() {
         shuffle(deck);
-        for (i = 0; i < cards.length; i++) cards[i].src = "/img/blank.png";
+        for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
         hitDealer();
     }
 
@@ -237,7 +237,7 @@
     function hit() {
         let card = deal();
         player.push(card);
-        document.getElementById("p" + count_p).src = "/img/" + card.face + ".png";
+        document.getElementById("p" + count_p).src = "./img/" + card.face + ".png";
         count_p += 1;
         console.log("Player: " + total(player));
         if (total(player) > 21) {
