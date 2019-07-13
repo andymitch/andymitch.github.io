@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=.5">
     <style>
         body {
             background: url("/img/greenFelt.jpg");
             background-color: darkgreen;
             z-index: 0;
             position: relative;
-            margin-left: 11%;
         }
-
+        
         p {
             margin: 8px;
             font-size: 30pt;
             text-align: left;
         }
-
+        
         button {
             background-color: indianred;
             border-style: none;
@@ -26,71 +26,62 @@
             font-size: 40px;
             letter-spacing: 1px;
         }
-
+        
         button:focus {
             outline: 0;
         }
-
+        
         #hand {
             height: 3.2in;
             position: static;
             margin-top: 10px;
         }
-
+        
         .card {
             height: 2in;
             width: 1.25in;
             display: inline-table;
         }
-
-        #btn {
-            margin-left: 16%;
-        }
-
+        
         #score {
             display: inline-flex;
-            margin-left: 50%;
-            transform: translate(-42%, 0);
         }
-
+        
         .banner {
             position: absolute;
-            margin-top: 0;
             left: 50%;
+            margin-top: 0;
         }
-
+        
         .else {
             position: absolute;
             margin-top: 10px;
-            left: 10%;
+            width: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
         }
-
-        .title {
-            display: inline-flex;
-            float: left;
-        }
-
+        
         #win,
         #lose,
         #bust,
         #tie {
             position: absolute;
-            transform: translate(-60%, 0);
+            transform: translate(-50%, 0);
             opacity: 0;
         }
-
+        
         #again {
             position: absolute;
-            transform: translate(-63%, 3.2in);
+            transform: translate(-52%, 3.2in);
             font-size: 20px;
             display: flex;
             opacity: 0;
         }
-
+        
         #yes {
             background-color: green;
         }
-
+        
         #no {
             background-color: red;
         }
@@ -102,7 +93,7 @@
         <!--<img id="deck" src="./cards/back.png">-->
         <div class="else">
             <div id="dealer">
-                <p class="title">Dealer</p>
+                <p class="title">Dealer:</p>
                 <img id="d0" class="card" src="/img/back.png">
                 <img id="d1" class="card" src="/img/back.png">
                 <img id="d2" class="card" src="/img/back.png">
@@ -110,7 +101,7 @@
                 <img id="d4" class="card" src="/img/back.png">
             </div>
             <div id="hand">
-                <p class="title">Player</p>
+                <p class="title">Player:</p>
                 <img id="p0" class="card" src="/img/back.png">
                 <img id="p1" class="card" src="/img/back.png">
                 <img id="p2" class="card" src="/img/back.png">
