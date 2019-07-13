@@ -133,7 +133,7 @@
                 <img id="p4" class="card" src="/img/back.png">
             </div>
             <div id="btn">
-                <button style="margin-right:10px" id="stay" onclick="stay()">stay</button>
+                <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
                 <button style="margin-left:10px" onclick="hit()">hit</button>
             </div>
             <br>
@@ -164,7 +164,7 @@
     let tie = document.getElementById("tie");
     let cards = document.getElementsByClassName("card");
     let play_again = document.getElementById("again");
-    let _stay = document.getElementById("stay");
+    let _stay = document.getElementById("_stay");
 
     class Card {
         constructor(rank, face) {
