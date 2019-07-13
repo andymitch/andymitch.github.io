@@ -248,31 +248,30 @@
             console.log("Lose");
         }
         play_again.style.opacity = 1;
-        _stay.style.animation = none;
-    }
+        _stay.style.animationPlayState = "paused";
 
-    function hit() {
-        let card = deal();
-        player.push(card);
-        document.getElementById("p" + count_p).src = "./img/" + card.face + ".png";
-        count_p += 1;
-        console.log("Player: " + total(player));
-        if (total(player) > 21) {
-            bust.style.opacity = 1;
-            points_d.innerHTML = Number(points_d.innerHTML) + 1;
-            play_again.style.opacity = 1;
-            console.log("Bust");
-        } else if (total(player) == 21) _stay.style.animation = "glowing 2000ms infinite";
-    }
+        function hit() {
+            let card = deal();
+            player.push(card);
+            document.getElementById("p" + count_p).src = "./img/" + card.face + ".png";
+            count_p += 1;
+            console.log("Player: " + total(player));
+            if (total(player) > 21) {
+                bust.style.opacity = 1;
+                points_d.innerHTML = Number(points_d.innerHTML) + 1;
+                play_again.style.opacity = 1;
+                console.log("Bust");
+            } else if (total(player) == 21) _stay.style.animation = "glowing 2000ms infinite";
+        }
 
-    function again() {
-        for (i = 0; i < player.length; i++) deck.push(player[i]);
-        for (i = 0; i < dealer.length; i++) deck.push(dealer[i]);
-        player = [];
-        dealer = [];
-        win.style.opacity = lose.style.opacity = bust.style.opacity = play_again.style.opacity = tie.style.opacity = 0;
-        count_p = count_d = 0;
+        function again() {
+            for (i = 0; i < player.length; i++) deck.push(player[i]);
+            for (i = 0; i < dealer.length; i++) deck.push(dealer[i]);
+            player = [];
+            dealer = [];
+            win.style.opacity = lose.style.opacity = bust.style.opacity = play_again.style.opacity = tie.style.opacity = 0;
+            count_p = count_d = 0;
+            start();
+        }
         start();
-    }
-    start();
 </script>
