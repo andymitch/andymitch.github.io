@@ -42,6 +42,7 @@
             height: 2in;
             width: 1.25in;
             display: inline-table;
+            animation: none;
         }
         
         #score {
@@ -60,6 +61,21 @@
             width: 100%;
             left: 50%;
             transform: translate(-50%, 0);
+        }
+        
+        @keyframes glowing {
+            0% {
+                box-shadow: 0 0 -10px #c4a300;
+            }
+            40% {
+                box-shadow: 0 0 20px #c4a300;
+            }
+            60% {
+                box-shadow: 0 0 20px #c4a300;
+            }
+            100% {
+                box-shadow: 0 0 -10px #c4a300;
+            }
         }
         
         #win,
@@ -237,6 +253,10 @@
             points_d.innerHTML = Number(points_d.innerHTML) + 1;
             play_again.style.opacity = 1;
             console.log("Bust");
+        } else if (total(player) == 21) {
+            let cards = document.getElementsByClassName("cards");
+            for (i = 0; i < cards.length; i++)
+                if (cards[i].src != "./img/blank.png") cards[i].style.animation = "glowing 5000ms infinite";
         }
     }
 
