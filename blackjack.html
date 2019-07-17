@@ -179,10 +179,6 @@
     let count_p = 0;
     let count_d = 0;
 
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-    }
-
     function shuffle(deck) {
         deck.sort(() => Math.random() - 0.5);
     }
@@ -212,7 +208,6 @@
         count_d += 1;
         title_d.innerHTML = "Dealer: " + total(dealer);
         console.log("Dealer: " + total(dealer));
-        sleep(500);
     }
 
     function start() {
@@ -241,7 +236,6 @@
 
     function stay() {
         while (total(dealer) < 16) hitDealer();
-        sleep(1000);
         if (total(player) > total(dealer) || total(dealer) > 21) {
             win.style.opacity = 1;
             score_p.innerHTML = Number(score_p.innerHTML) + 1;
@@ -266,7 +260,6 @@
         title_p.innerHTML = "Player: " + total(player);
         console.log("Player: " + total(player));
         if (total(player) > 21) {
-            sleep(1500);
             bust.style.opacity = 1;
             score_d.innerHTML = Number(score_d.innerHTML) + 1;
             play_again.style.opacity = 1;
