@@ -116,7 +116,7 @@
     <CENTER>
         <div class="else">
             <div id="dealer">
-                <p class="title">Dealer:</p>
+                <p id="title_d">Dealer:</p>
                 <img id="d0" class="card" src="/img/back.png">
                 <img id="d1" class="card" src="/img/back.png">
                 <img id="d2" class="card" src="/img/back.png">
@@ -124,7 +124,7 @@
                 <img id="d4" class="card" src="/img/back.png">
             </div>
             <div id="hand">
-                <p class="title">Player:</p>
+                <p id="title_p">Player:</p>
                 <img id="p0" class="card" src="/img/back.png">
                 <img id="p1" class="card" src="/img/back.png">
                 <img id="p2" class="card" src="/img/back.png">
@@ -138,9 +138,9 @@
             <br>
             <div id="score">
                 <p>You: </p>
-                <p id="points_p">0</p>
+                <p id="score_p">0</p>
                 <p>Dealer: </p>
-                <p id="points_d">0</p>
+                <p id="score_d">0</p>
             </div>
         </div>
         <div class="banner">
@@ -205,7 +205,9 @@
         dealer.push(card);
         document.getElementById("d" + count_d).src = "./img/" + card.face + ".png";
         count_d += 1;
+        title_d.innerHTML = "Dealer: " + total(dealer);
         console.log("Dealer: " + total(dealer));
+        await sleep(500);
     }
 
     function start() {
@@ -234,16 +236,17 @@
 
     function stay() {
         while (total(dealer) < 16) hitDealer();
+        await sleep(1000);
         if (total(player) > total(dealer) || total(dealer) > 21) {
             win.style.opacity = 1;
-            points_p.innerHTML = Number(points_p.innerHTML) + 1;
+            score_p.innerHTML = Number(score_p.innerHTML) + 1;
             console.log("Win");
         } else if (total(player) == total(dealer)) {
             tie.style.opacity = 1;
             console.log("Tie");
         } else {
             lose.style.opacity = 1;
-            points_d.innerHTML = Number(points_d.innerHTML) + 1;
+            score_d.innerHTML = Number(score_d.innerHTML) + 1;
             console.log("Lose");
         }
         play_again.style.opacity = 1;
@@ -255,10 +258,12 @@
         player.push(card);
         document.getElementById("p" + count_p).src = "./img/" + card.face + ".png";
         count_p += 1;
+        title_p.innerHTML = "Player: " + total(player);
         console.log("Player: " + total(player));
         if (total(player) > 21) {
+            await sleep(1500);
             bust.style.opacity = 1;
-            points_d.innerHTML = Number(points_d.innerHTML) + 1;
+            score_d.innerHTML = Number(score_d.innerHTML) + 1;
             play_again.style.opacity = 1;
             console.log("Bust");
         } else if (total(player) == 21) _stay.style.animation = "glowing 2000ms infinite";
