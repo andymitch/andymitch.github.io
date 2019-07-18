@@ -63,7 +63,6 @@
         }
         
         #left {
-            position: absolute;
             margin-top: 10px;
             width: 100%;
             left: 50%;
@@ -71,11 +70,14 @@
         }
         
         #right {
-            position: absolute;
             right: 0;
             width: 3in;
             border: 1cm;
             border-color: white;
+        }
+        
+        #table {
+            position: absolute;
         }
         
         @keyframes glowing {
@@ -123,42 +125,44 @@
 
 <body>
     <CENTER>
-        <div id="left">
-            <div id="dealer">
-                <p id="title_d">Dealer:</p>
-                <img id="d0" class="card" src="/img/back.png">
-                <img id="d1" class="card" src="/img/back.png">
-                <img id="d2" class="card" src="/img/back.png">
-                <img id="d3" class="card" src="/img/back.png">
-                <img id="d4" class="card" src="/img/back.png">
+        <div id="table">
+            <div id="left">
+                <div id="dealer">
+                    <p id="title_d">Dealer:</p>
+                    <img id="d0" class="card" src="/img/back.png">
+                    <img id="d1" class="card" src="/img/back.png">
+                    <img id="d2" class="card" src="/img/back.png">
+                    <img id="d3" class="card" src="/img/back.png">
+                    <img id="d4" class="card" src="/img/back.png">
+                </div>
+                <div id="hand">
+                    <p id="title_p">Player:</p>
+                    <img id="p0" class="card" src="/img/back.png">
+                    <img id="p1" class="card" src="/img/back.png">
+                    <img id="p2" class="card" src="/img/back.png">
+                    <img id="p3" class="card" src="/img/back.png">
+                    <img id="p4" class="card" src="/img/back.png">
+                </div>
+                <div id="btn">
+                    <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
+                    <button style="margin-left:10px" onclick="hit()">hit</button>
+                </div>
+                <br>
+                <div id="score">
+                    <p>You: </p>
+                    <p id="score_p">0</p>
+                    <p>Dealer: </p>
+                    <p id="score_d">0</p>
+                </div>
             </div>
-            <div id="hand">
-                <p id="title_p">Player:</p>
-                <img id="p0" class="card" src="/img/back.png">
-                <img id="p1" class="card" src="/img/back.png">
-                <img id="p2" class="card" src="/img/back.png">
-                <img id="p3" class="card" src="/img/back.png">
-                <img id="p4" class="card" src="/img/back.png">
-            </div>
-            <div id="btn">
-                <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
-                <button style="margin-left:10px" onclick="hit()">hit</button>
-            </div>
-            <br>
-            <div id="score">
-                <p>You: </p>
-                <p id="score_p">0</p>
-                <p>Dealer: </p>
-                <p id="score_d">0</p>
-            </div>
-        </div>
-        <div id="right">
-            <!--deck----->
-            <p>test</p>
-            <!--betting-->
+            <div id="right">
+                <!--deck----->
+                <p>test</p>
+                <!--betting-->
 
-            <!--audio---->
+                <!--audio---->
 
+            </div>
         </div>
         <div class="banner">
             <img src="./img/winner.png" alt="winner" id="win">
