@@ -191,7 +191,7 @@
                     <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
                     <button style="margin-left:10px" id="_hit" onclick="hit()">hit</button>
                 </div>
-                <div id="player_money">$20</div>
+                <div id="player_money">$5</div>
             </div>
         </div>
         <div class="banner">
@@ -258,6 +258,10 @@
         if (n == -1) {
             bet_amount = 0;
             bet_money.innerHTML = "$" + bet_amount;
+            if (money >= 1) document.getElementById("c" + 1).disabled = false;
+            if (money >= 5) document.getElementById("c" + 5).disabled = false;
+            if (money >= 20) document.getElementById("c" + 20).disabled = false;
+            if (money >= 50) document.getElementById("c" + 50).disabled = false;
         } else if (n == 0) {
             for (i = 0; i < 4; i++) chips[i].disabled = true;
             for (i = 0; i < 2; i++) bet_buttons[i].disabled = true;
