@@ -284,6 +284,8 @@
     }
 
     function start() {
+        _hit.disabled = true;
+        _stay.disabled = true;
         shuffle(deck);
         for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
         hitDealer();
