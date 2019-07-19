@@ -108,7 +108,8 @@
         #win,
         #lose,
         #bust,
-        #tie {
+        #tie,
+        #place_bet {
             position: absolute;
             opacity: 0;
             transform: translate(-50%, 0);
@@ -129,48 +130,44 @@
     <CENTER>
         <div class="wrapper">
             <div id="left">
-                <div class="cards">
-                    <div id="dealer">
-                        <p id="title_d">Dealer:</p>
-                        <img id="d0" class="card" src="/img/back.png">
-                        <img id="d1" class="card" src="/img/back.png">
-                        <img id="d2" class="card" src="/img/back.png">
-                        <img id="d3" class="card" src="/img/back.png">
-                        <img id="d4" class="card" src="/img/back.png">
-                        <img id="d5" class="card" src="/img/back.png">
-                        <img id="d6" class="card" src="/img/back.png">
-                    </div>
-                    <div id="hand">
-                        <p id="title_p">Player:</p>
-                        <img id="p0" class="card" src="/img/back.png">
-                        <img id="p1" class="card" src="/img/back.png">
-                        <img id="p2" class="card" src="/img/back.png">
-                        <img id="p3" class="card" src="/img/back.png">
-                        <img id="p4" class="card" src="/img/back.png">
-                        <img id="p5" class="card" src="/img/back.png">
-                        <img id="p6" class="card" src="/img/back.png">
-                    </div>
+                <div id="dealer">
+                    <p id="title_d">Dealer:</p>
+                    <img id="d1" class="card" src="/img/back.png">
+                    <img id="d2" class="card" src="/img/back.png">
+                    <img id="d3" class="card" src="/img/back.png">
+                    <img id="d4" class="card" src="/img/back.png">
+                    <img id="d5" class="card" src="/img/back.png">
+                    <img id="d6" class="card" src="/img/back.png">
+                    <img id="d7" class="card" src="/img/back.png">
                 </div>
-                <div class="lower">
-                    <div id="btn">
-                        <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
-                        <button style="margin-left:10px" onclick="hit()">hit</button>
-                    </div>
-                    <div id="score">
-                        <p>You: </p>
-                        <p id="score_p">0</p>
-                        <p>Dealer: </p>
-                        <p id="score_d">0</p>
-                    </div>
+                <div id="hand">
+                    <p id="title_p">Player:</p>
+                    <img id="p1" class="card" src="/img/back.png">
+                    <img id="p2" class="card" src="/img/back.png">
+                    <img id="p3" class="card" src="/img/back.png">
+                    <img id="p4" class="card" src="/img/back.png">
+                    <img id="p5" class="card" src="/img/back.png">
+                    <img id="p6" class="card" src="/img/back.png">
+                    <img id="p7" class="card" src="/img/back.png">
                 </div>
             </div>
             <div id="right">
-                <div id="deck">
-                    <p>test</p>
+                <div id="bet">
+                    <p id="bet_money">$0</p>
+                    <button class="bet_button" style="background-color: green" onclick="bet(0)">OK</button>
+                    <button class="bet_button" style="background-color: rgb(253, 77, 77)" onclick="bet(-1)">CANCEL</button>
                 </div>
-                <div id="betting">
-
+                <div id="chips">
+                    <button class="chip" onclick="bet(1)">$1</button>
+                    <button class="chip" onclick="bet(5)">$5</button>
+                    <button class="chip" onclick="bet(20)">$20</button>
+                    <button class="chip" onclick="bet(50)">$50</button>
                 </div>
+                <div id="action">
+                    <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
+                    <button style="margin-left:10px" id="_hit" onclick="hit()">hit</button>
+                </div>
+                <div id="player_money">$0</div>
             </div>
         </div>
         <div class="banner">
@@ -178,6 +175,7 @@
             <img src="./img/loser.png" alt="loser" id="lose">
             <img src="./img/bust.png" alt="bust" id="bust">
             <img src="./img/tie.png" alt="tie" id="tie">
+            <img src="./img/bet.png" alt="bet" id="place_bet">
             <div id="again">
                 <button style="background-color: green" onclick="again()">YES</button>
                 <p style="text-align: center">Play Again?</p>
@@ -192,9 +190,14 @@
     let lose = document.getElementById("lose");
     let bust = document.getElementById("bust");
     let tie = document.getElementById("tie");
+    let place_bet = document.getElementById("place_bet");
     let cards = document.getElementsByClassName("card");
     let play_again = document.getElementById("again");
     let _stay = document.getElementById("_stay");
+    let _hit = document.getElementById("_hit");
+    let chips = document.getElementsByClassName("chip");
+    let bet_buttons = document.getElementsByClassName("bet_button");
+    let bet_money = document.getElementById("bet_money");
 
     class Card {
         constructor(rank, face) {
@@ -206,8 +209,9 @@
     let deck = []
     let player = [];
     let dealer = [];
-    let count_p = 0;
-    let count_d = 0;
+
+    let money = 20;
+    let bet_amount = 0;
 
     function shuffle(deck) {
         deck.sort(() => Math.random() - 0.5);
@@ -225,6 +229,26 @@
     get('H');
     get('S');
 
+    function bet(n) {
+        if (n == -1) {
+            bet_amount = 0;
+            bet_money.innerHTML = "$" + bet_amount;
+        } else if (n == 0) {
+            for (i = 0; i < 4; i++) chips[i].disabled = true;
+            for (i = 0; i < 2; i++) bet_buttons[i].disabled = true;
+            _stay.disabled = false;
+            _hit.disabled = false;
+        } else {
+            money -= n;
+            bet_amount += n;
+            bet_money.innerHTML = "$" + bet_amount;
+        }
+        if (money < 1) document.getElementById("c" + 1).disabled = true;
+        if (money < 5) document.getElementById("c" + 5).disabled = true;
+        if (money < 20) document.getElementById("c" + 20).disabled = true;
+        if (money < 50) document.getElementById("c" + 50).disabled = true;
+    }
+
     function deal() {
         card = deck[deck.length - 1];
         deck.pop();
@@ -234,8 +258,7 @@
     function hitDealer() {
         let card = deal();
         dealer.push(card);
-        document.getElementById("d" + count_d).src = "./img/" + card.face + ".png";
-        count_d += 1;
+        document.getElementById("d" + dealer.length).src = "./img/" + card.face + ".png";
         title_d.innerHTML = "Dealer: " + total(dealer);
         console.log("Dealer: " + total(dealer));
     }
@@ -245,6 +268,13 @@
         for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
         hitDealer();
         hit();
+        place_bet.style.opacity = 1;
+        setTimeout(function() {}, 1500);
+        place_bet.style.opacity = 0;
+        if (money < 1) document.getElementById("c" + 1).disabled = true;
+        if (money < 5) document.getElementById("c" + 5).disabled = true;
+        if (money < 20) document.getElementById("c" + 20).disabled = true;
+        if (money < 50) document.getElementById("c" + 50).disabled = true;
     }
 
     function total(hand) {
@@ -286,8 +316,7 @@
     function hit() {
         let card = deal();
         player.push(card);
-        document.getElementById("p" + count_p).src = "./img/" + card.face + ".png";
-        count_p += 1;
+        document.getElementById("p" + player.length).src = "./img/" + card.face + ".png";
         title_p.innerHTML = "Player: " + total(player);
         console.log("Player: " + total(player));
         if (total(player) > 21) {
@@ -304,10 +333,12 @@
         player = [];
         dealer = [];
         win.style.opacity = lose.style.opacity = bust.style.opacity = play_again.style.opacity = tie.style.opacity = 0;
-        count_p = count_d = 0;
         title_p.innerHTML = "Player";
         title_d.innerHTML = "Dealer";
-        start();
+        bet_amount = 0;
+        bet_money.innerHTML = "$" + bet_amount;
+        for (i = 0; i < 4; i++) chips[i].disabled = false;
+        for (i = 0; i < 2; i++) bet_buttons[i].disabled = false;
     }
     start();
 </script>
