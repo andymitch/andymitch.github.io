@@ -129,36 +129,39 @@
     <CENTER>
         <div class="wrapper">
             <div id="left">
-                <div id="dealer">
-                    <p id="title_d">Dealer:</p>
-                    <img id="d0" class="card" src="/img/back.png">
-                    <img id="d1" class="card" src="/img/back.png">
-                    <img id="d2" class="card" src="/img/back.png">
-                    <img id="d3" class="card" src="/img/back.png">
-                    <img id="d4" class="card" src="/img/back.png">
-                    <img id="d5" class="card" src="/img/back.png">
-                    <img id="d6" class="card" src="/img/back.png">
+                <div class="cards">
+                    <div id="dealer">
+                        <p id="title_d">Dealer:</p>
+                        <img id="d0" class="card" src="/img/back.png">
+                        <img id="d1" class="card" src="/img/back.png">
+                        <img id="d2" class="card" src="/img/back.png">
+                        <img id="d3" class="card" src="/img/back.png">
+                        <img id="d4" class="card" src="/img/back.png">
+                        <img id="d5" class="card" src="/img/back.png">
+                        <img id="d6" class="card" src="/img/back.png">
+                    </div>
+                    <div id="hand">
+                        <p id="title_p">Player:</p>
+                        <img id="p0" class="card" src="/img/back.png">
+                        <img id="p1" class="card" src="/img/back.png">
+                        <img id="p2" class="card" src="/img/back.png">
+                        <img id="p3" class="card" src="/img/back.png">
+                        <img id="p4" class="card" src="/img/back.png">
+                        <img id="p5" class="card" src="/img/back.png">
+                        <img id="p6" class="card" src="/img/back.png">
+                    </div>
                 </div>
-                <div id="hand">
-                    <p id="title_p">Player:</p>
-                    <img id="p0" class="card" src="/img/back.png">
-                    <img id="p1" class="card" src="/img/back.png">
-                    <img id="p2" class="card" src="/img/back.png">
-                    <img id="p3" class="card" src="/img/back.png">
-                    <img id="p4" class="card" src="/img/back.png">
-                    <img id="p5" class="card" src="/img/back.png">
-                    <img id="p6" class="card" src="/img/back.png">
-                </div>
-
-                <div id="btn">
-                    <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
-                    <button style="margin-left:10px" onclick="hit()">hit</button>
-                </div>
-                <div id="score">
-                    <p>You: </p>
-                    <p id="score_p">0</p>
-                    <p>Dealer: </p>
-                    <p id="score_d">0</p>
+                <div class="lower">
+                    <div id="btn">
+                        <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
+                        <button style="margin-left:10px" onclick="hit()">hit</button>
+                    </div>
+                    <div id="score">
+                        <p>You: </p>
+                        <p id="score_p">0</p>
+                        <p>Dealer: </p>
+                        <p id="score_d">0</p>
+                    </div>
                 </div>
             </div>
             <div id="right">
@@ -239,7 +242,7 @@
 
     function start() {
         shuffle(deck);
-        //for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
+        for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
         hitDealer();
         hit();
     }
