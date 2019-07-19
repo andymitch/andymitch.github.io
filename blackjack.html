@@ -299,7 +299,6 @@
         while (total(dealer) < 16) hitDealer();
         if (total(player) > total(dealer) || total(dealer) > 21) {
             win.style.opacity = 1;
-            score_p.innerHTML = Number(score_p.innerHTML) + 1;
             console.log("Win");
             money += 2 * bet_amount;
             bet_money.innerHTML = money;
@@ -325,7 +324,6 @@
         console.log("Player: " + total(player));
         if (total(player) > 21) {
             bust.style.opacity = 1;
-            score_d.innerHTML = Number(score_d.innerHTML) + 1;
             play_again.style.opacity = 1;
             console.log("Bust");
         } else if (total(player) == 21) _stay.style.animation = "glowing 2000ms infinite";
