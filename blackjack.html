@@ -44,12 +44,14 @@
             height: 3.2in;
             position: static;
             margin-top: 10px;
+            /*margin-left: .75in;*/
         }
         
         .card {
             height: 2in;
             width: 1.25in;
             display: inline-table;
+            margin-left: -.75in;
         }
         
         #score {
@@ -71,11 +73,12 @@
         }
         
         #left {
-            width: 900px;
+            min-width: 615px;
             float: left;
             border: 5px ridge black;
             background: rgba(0, 0, 0, 0.2);
             margin-right: 5px;
+            margin-bottom: 5px;
         }
         
         #right {
@@ -117,14 +120,6 @@
             font-size: 20px;
             display: flex;
             opacity: 0;
-        }
-        
-        #yes {
-            background-color: green;
-        }
-        
-        #no {
-            background-color: red;
         }
     </style>
 </head>
@@ -181,9 +176,9 @@
             <img src="./img/bust.png" alt="bust" id="bust">
             <img src="./img/tie.png" alt="tie" id="tie">
             <div id="again">
-                <button id="yes" onclick="again()">YES</button>
+                <button style="background-color: green" onclick="again()">YES</button>
                 <p style="text-align: center">Play Again?</p>
-                <button id="no" onclick="location.href='/index.html'">NO</button>
+                <button style="background-color: red" onclick="location.href='/index.html'">NO</button>
             </div>
         </div>
     </CENTER>
@@ -244,7 +239,7 @@
 
     function start() {
         shuffle(deck);
-        for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
+        //for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
         hitDealer();
     }
 
