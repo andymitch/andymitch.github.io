@@ -301,12 +301,15 @@
             win.style.opacity = 1;
             score_p.innerHTML = Number(score_p.innerHTML) + 1;
             console.log("Win");
+            money += 2 * bet_amount;
+            bet_money.innerHTML = money;
         } else if (total(player) == total(dealer)) {
             tie.style.opacity = 1;
             console.log("Tie");
+            money += bet_amount;
+            bet_money.innerHTML = money;
         } else {
             lose.style.opacity = 1;
-            score_d.innerHTML = Number(score_d.innerHTML) + 1;
             console.log("Lose");
         }
         play_again[0].style.opacity = 1;
