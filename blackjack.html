@@ -191,7 +191,7 @@
                     <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
                     <button style="margin-left:10px" id="_hit" onclick="hit()">hit</button>
                 </div>
-                <div id="player_money">$5</div>
+                <div id="player_money">$100</div>
             </div>
         </div>
         <div class="banner">
@@ -235,7 +235,7 @@
     let player = [];
     let dealer = [];
 
-    let money = 5;
+    let money = 100;
     let bet_amount = 0;
 
     function shuffle(deck) {
@@ -256,6 +256,8 @@
 
     function bet(n) {
         if (n == -1) {
+            console.log("clear");
+            money += bet_amount;
             bet_amount = 0;
             bet_money.innerHTML = "$" + bet_amount;
             if (money >= 1) document.getElementById("c" + 1).disabled = false;
