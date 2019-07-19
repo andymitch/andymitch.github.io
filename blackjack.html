@@ -62,22 +62,24 @@
             margin-top: 60px;
         }
         
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+        }
+        
         #left {
             margin-top: 10px;
-            width: 7in;
-            left: 0;
+            width: 1000px;
+            float: left;
+            overflow: hidden;
         }
         
         #right {
             width: 5in;
             background: #c4a300;
-        }
-        
-        #table {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
         }
         
         @keyframes glowing {
@@ -125,7 +127,7 @@
 
 <body>
     <CENTER>
-        <div id="table">
+        <div class="wrapper">
             <div id="left">
                 <div id="dealer">
                     <p id="title_d">Dealer:</p>
