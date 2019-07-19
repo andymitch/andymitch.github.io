@@ -260,6 +260,7 @@
             money += bet_amount;
             bet_amount = 0;
             bet_money.innerHTML = "$" + bet_amount;
+            player_money.innerHTML = "$" + (money - bet_amount);
             if (money >= 1) document.getElementById("c" + 1).disabled = false;
             if (money >= 5) document.getElementById("c" + 5).disabled = false;
             if (money >= 20) document.getElementById("c" + 20).disabled = false;
