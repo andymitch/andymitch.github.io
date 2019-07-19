@@ -71,7 +71,7 @@
         }
         
         #left {
-            width: 1000px;
+            width: 900px;
             float: left;
             border: 5px ridge black;
             background: rgba(0, 0, 0, 0.2);
@@ -83,7 +83,8 @@
             float: left;
             border: 5px ridge black;
             background: rgba(0, 0, 0, 0.2);
-            min-width: 200px;
+            min-width: 380px;
+            height: 100%;
         }
         
         @keyframes glowing {
@@ -106,8 +107,8 @@
         #bust,
         #tie {
             position: absolute;
-            transform: translate(-50%, 0);
             opacity: 0;
+            transform: translate(-50%, 0);
         }
         
         #again {
@@ -141,6 +142,7 @@
                     <img id="d3" class="card" src="/img/back.png">
                     <img id="d4" class="card" src="/img/back.png">
                     <img id="d5" class="card" src="/img/back.png">
+                    <img id="d6" class="card" src="/img/back.png">
                 </div>
                 <div id="hand">
                     <p id="title_p">Player:</p>
@@ -150,12 +152,13 @@
                     <img id="p3" class="card" src="/img/back.png">
                     <img id="p4" class="card" src="/img/back.png">
                     <img id="p5" class="card" src="/img/back.png">
+                    <img id="p6" class="card" src="/img/back.png">
                 </div>
+
                 <div id="btn">
                     <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
                     <button style="margin-left:10px" onclick="hit()">hit</button>
                 </div>
-                <br>
                 <div id="score">
                     <p>You: </p>
                     <p id="score_p">0</p>
@@ -164,12 +167,12 @@
                 </div>
             </div>
             <div id="right">
-                <!--deck----->
-                <p>test</p>
-                <!--betting-->
+                <div id="deck">
+                    <p>test</p>
+                </div>
+                <div id="betting">
 
-                <!--audio---->
-
+                </div>
             </div>
         </div>
         <div class="banner">
@@ -184,6 +187,7 @@
             </div>
         </div>
     </CENTER>
+    <!--audio---->
 </body>
 <script>
     let win = document.getElementById("win");
