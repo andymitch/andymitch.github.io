@@ -44,7 +44,6 @@
             height: 3.2in;
             position: static;
             margin-top: 10px;
-            /*margin-left: .75in;*/
         }
         
         .card {
@@ -288,8 +287,8 @@
         hitDealer();
         hit();
         place_bet.style.opacity = 1;
-        setTimeout(function() {}, 1500);
-        place_bet.style.opacity = 0;
+        //setTimeout(function() {}, 1500);
+        //place_bet.style.opacity = 0;
         if (money < 1) document.getElementById("c" + 1).disabled = true;
         if (money < 5) document.getElementById("c" + 5).disabled = true;
         if (money < 20) document.getElementById("c" + 20).disabled = true;
