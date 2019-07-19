@@ -217,6 +217,7 @@
     let chips = document.getElementsByClassName("chip");
     let bet_buttons = document.getElementsByClassName("bet_button");
     let bet_money = document.getElementById("bet_money");
+    let player_money = document.getElementById("player_money");
 
     class Card {
         constructor(rank, face) {
@@ -321,12 +322,12 @@
             win.style.opacity = 1;
             console.log("Win");
             money += 2 * bet_amount;
-            bet_money.innerHTML = money;
+            player_money.innerHTML = money;
         } else if (total(player) == total(dealer)) {
             tie.style.opacity = 1;
             console.log("Tie");
             money += bet_amount;
-            bet_money.innerHTML = money;
+            player_money.innerHTML = money;
         } else {
             lose.style.opacity = 1;
             console.log("Lose");
