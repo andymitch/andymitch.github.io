@@ -188,7 +188,7 @@
                 </div>
                 <div id="action">
                     <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
-                    <button style="margin-left:10px" id="_hit" onclick="hit()">hit</button>
+                    <button style="margin-left:10px" id="_hit" onclick="hit(true)">hit</button>
                 </div>
                 <div id="player_money">$100</div>
             </div>
@@ -298,7 +298,7 @@
         shuffle(deck);
         for (i = 0; i < cards.length; i++) cards[i].src = "./img/blank.png";
         hitDealer();
-        hit();
+        hit(false);
         place_bet.style.opacity = 1;
         setTimeout(function() {
             place_bet.style.opacity = 0;
@@ -348,8 +348,8 @@
         _stay.style.animation = 0;
     }
 
-    function hit() {
-        bet(0);
+    function hit(first) {
+        if (!first) bet(0);
         let card = deal();
         player.push(card);
         document.getElementById("p" + player.length).src = "./img/" + card.face + ".png";
