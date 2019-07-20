@@ -348,8 +348,8 @@
         _stay.style.animation = 0;
     }
 
-    function hit(first) {
-        if (!first) bet(0);
+    function hit(notfirst) {
+        if (notfirst) bet(0);
         let card = deal();
         player.push(card);
         document.getElementById("p" + player.length).src = "./img/" + card.face + ".png";
