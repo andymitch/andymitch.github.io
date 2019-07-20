@@ -40,7 +40,7 @@
             box-shadow: 0 0 10px black;
         }
         
-        #hand {
+        #player {
             position: static;
             margin-top: 10px;
             background-color: rgba(255, 255, 255, 0.3);
@@ -48,6 +48,10 @@
         
         #dealer {
             background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .hand {
+            margin-left: .75in;
         }
         
         .card {
@@ -155,23 +159,27 @@
             <div id="left">
                 <div id="dealer">
                     <p id="title_d">Dealer:</p>
-                    <img id="d1" class="card" src="/img/back.png">
-                    <img id="d2" class="card" src="/img/back.png">
-                    <img id="d3" class="card" src="/img/back.png">
-                    <img id="d4" class="card" src="/img/back.png">
-                    <img id="d5" class="card" src="/img/back.png">
-                    <img id="d6" class="card" src="/img/back.png">
-                    <img id="d7" class="card" src="/img/back.png">
+                    <div class="hand">
+                        <img id="d1" class="card" src="/img/back.png">
+                        <img id="d2" class="card" src="/img/back.png">
+                        <img id="d3" class="card" src="/img/back.png">
+                        <img id="d4" class="card" src="/img/back.png">
+                        <img id="d5" class="card" src="/img/back.png">
+                        <img id="d6" class="card" src="/img/back.png">
+                        <img id="d7" class="card" src="/img/back.png">
+                    </div>
                 </div>
-                <div id="hand">
+                <div id="player">
                     <p id="title_p">Player:</p>
-                    <img id="p1" class="card" src="/img/back.png">
-                    <img id="p2" class="card" src="/img/back.png">
-                    <img id="p3" class="card" src="/img/back.png">
-                    <img id="p4" class="card" src="/img/back.png">
-                    <img id="p5" class="card" src="/img/back.png">
-                    <img id="p6" class="card" src="/img/back.png">
-                    <img id="p7" class="card" src="/img/back.png">
+                    <div class="hand">
+                        <img id="p1" class="card" src="/img/back.png">
+                        <img id="p2" class="card" src="/img/back.png">
+                        <img id="p3" class="card" src="/img/back.png">
+                        <img id="p4" class="card" src="/img/back.png">
+                        <img id="p5" class="card" src="/img/back.png">
+                        <img id="p6" class="card" src="/img/back.png">
+                        <img id="p7" class="card" src="/img/back.png">
+                    </div>
                 </div>
             </div>
             <div id="right">
