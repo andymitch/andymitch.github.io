@@ -77,9 +77,8 @@
             height: 100%;
             position: absolute;
             left: 0;
-            display: inline-table;
             display: flex;
-            /*align-content: stretch;*/
+            flex-wrap: wrap;
         }
         
         .chip {
@@ -104,7 +103,7 @@
         }
         
         #left {
-            width: 460px;
+            min-width: 460px;
             border: 5px ridge black;
             background: rgba(0, 0, 0, 0.2);
             margin: auto;
@@ -114,7 +113,7 @@
             background: #c4a300;
             border: 5px ridge black;
             background: rgba(0, 0, 0, 0.2);
-            width: 424px;
+            minwidth: 424px;
             margin: auto;
         }
         
