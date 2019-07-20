@@ -219,7 +219,7 @@
     let _stay = document.getElementById("_stay");
     let _hit = document.getElementById("_hit");
     let chips = document.getElementsByClassName("chip");
-    let bet_buttons = document.getElementsByClassName("bet_button");
+    let clear = document.getElementsByClassName("clear");
     let bet_money = document.getElementById("bet_money");
     let player_money = document.getElementById("player_money");
 
@@ -266,7 +266,7 @@
             if (money >= 50) document.getElementById("c" + 50).disabled = false;
         } else if (n == 0) {
             for (i = 0; i < 4; i++) chips[i].disabled = true;
-            for (i = 0; i < 2; i++) bet_buttons[i].disabled = true;
+            clear.disabled = true;
         } else {
             console.log("bet +$" + n);
             money -= n;
