@@ -362,6 +362,7 @@
             bust.style.opacity = 1;
             play_again.style.opacity = 1;
             console.log("Bust");
+            if (money == 0) location.href = '/index.html';
         } else if (total(player) == 21) _stay.style.animation = "glowing 2000ms infinite";
     }
 
