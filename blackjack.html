@@ -41,7 +41,6 @@
         }
         
         #hand {
-            height: 3.2in;
             position: static;
             margin-top: 10px;
             background-color: rgba(255, 255, 255, 0.3);
@@ -346,6 +345,7 @@
         } else {
             lose.style.opacity = 1;
             console.log("Lose");
+            if (money == 0) location.href = '/index.html';
         }
         play_again.style.opacity = 1;
         _stay.style.animation = 0;
