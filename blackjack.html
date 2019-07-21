@@ -45,8 +45,6 @@
             margin-top: 10px;
         }
         
-        #dealer {}
-        
         .hand {
             margin-left: .75in;
         }
@@ -91,6 +89,11 @@
         #bet {
             display: flex;
             width: 100%;
+            position: absolute;
+        }
+        
+        #action {
+            position: absolute;
         }
         
         #bet_money {
@@ -107,6 +110,12 @@
             background: #c4a300;
             min-width: 424px;
             margin: auto;
+        }
+        
+        #_stay,
+        #hit {
+            width: 424px;
+            height: 195px;
         }
         
         @keyframes glowing {
@@ -178,12 +187,12 @@
                 <div id="bet">
                     <p id="bet_money">$0</p>
                     <button class="clear" style="background-color: rgb(253, 77, 77)" onclick="bet(-1)">CLR</button>
-                </div>
-                <div id="chips">
-                    <button class="chip" id="c1" onclick="bet(1)">$1</button>
-                    <button class="chip" id="c5" onclick="bet(5)">$5</button>
-                    <button class="chip" id="c20" onclick="bet(20)">$20</button>
-                    <button class="chip" id="c50" onclick="bet(50)">$50</button>
+                    <div id="chips">
+                        <button class="chip" id="c1" onclick="bet(1)">$1</button>
+                        <button class="chip" id="c5" onclick="bet(5)">$5</button>
+                        <button class="chip" id="c20" onclick="bet(20)">$20</button>
+                        <button class="chip" id="c50" onclick="bet(50)">$50</button>
+                    </div>
                 </div>
                 <div id="action">
                     <button style="margin-right:10px" id="_stay" onclick="stay()">stay</button>
