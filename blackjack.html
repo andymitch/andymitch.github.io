@@ -176,7 +176,7 @@
             <div id="right">
                 <div id="bet">
                     <p id="bet_money">$0</p>
-                    <button class="clear" style="background-color: rgb(253, 77, 77)" onclick="bet(-1)">CLR</button>
+                    <button id="clear" style="background-color: rgb(253, 77, 77)" onclick="bet(-1)">CLR</button>
                 </div>
                 <div id="chips">
                     <button class="chip" id="c1" onclick="bet(1)">$1</button>
@@ -217,7 +217,7 @@
     let _stay = document.getElementById("_stay");
     let _hit = document.getElementById("_hit");
     let chips = document.getElementsByClassName("chip");
-    let clear = document.getElementsByClassName("clear");
+    let clear = document.getElementById("clear");
     let bet_money = document.getElementById("bet_money");
     let player_money = document.getElementById("player_money");
 
