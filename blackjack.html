@@ -161,6 +161,7 @@
             transform: rotate(270deg);
             transform-origin: right top;
             background-color: #c4a300;
+            margin-bottom: 100px;
         }
         
         #again {
@@ -408,15 +409,15 @@
         player = [];
         dealer = [];
         win.style.opacity = lose.style.opacity = bust.style.opacity = play_again.style.opacity = tie.style.opacity = 0;
-        title_p.innerHTML = "Player";
-        title_d.innerHTML = "Dealer";
         bet_amount = 0;
-        bet_money.innerHTML = "$" + bet_amount;
-        for (i = 0; i < 4; i++) chips[i].disabled = false;
+        bet_money.innerHTML = "$0";
+        for (i = 0; i < 4; i++) {
+            chips[i].disabled = false;
+            chips[i].style.opacity = 1;
+        }
         clear.disabled = false;
+        clear.style.opacity = 1;
         start();
     }
     start();
-
-    // NOTES //leave stay and hit enabled and, once one of them is pressed, dissable the betting. this will make OK obsolete
 </script>
