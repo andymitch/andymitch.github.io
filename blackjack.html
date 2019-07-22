@@ -127,7 +127,6 @@
         #_hit {
             width: 424px;
             height: 195px;
-            opacity: .5;
         }
         
         @keyframes glowing {
@@ -294,8 +293,15 @@
             if (money >= 20) document.getElementById("c" + 20).disabled = false;
             if (money >= 50) document.getElementById("c" + 50).disabled = false;
         } else if (n == 0) {
-            for (i = 0; i < 4; i++) chips[i].disabled = true;
+            for (i = 0; i < 4; i++) {
+                chips[i].disabled = true;
+                chips[i].style.opacity = 0;
+            }
             clear.disabled = true;
+            clear.style.opacity = 0;
+            _stay.disabled = false;
+            _stay.style.opacity = 1;
+
         } else {
             console.log("bet +$" + n);
             money -= n;
@@ -332,6 +338,8 @@
         setTimeout(function() {
             place_bet.style.opacity = 0;
         }, 500);
+        _stay.disabled = true;
+        _stay.style.opacity = 0;
         if (money < 1) document.getElementById("c" + 1).disabled = true;
         if (money < 5) document.getElementById("c" + 5).disabled = true;
         if (money < 20) document.getElementById("c" + 20).disabled = true;
