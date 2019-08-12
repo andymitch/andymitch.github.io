@@ -1,3 +1,15 @@
+body {
+    margin: 0%;
+}
+
+h1 {
+    margin: 0%;
+}
+
+div {
+    padding-top: 50%;
+}
+
 main {
     height: 100vh;
     display: grid;
@@ -9,34 +21,40 @@ main {
     background: lightblue;
     grid-column: 1/2;
     grid-row: 1/2;
+    text-align: center;
 }
 
 .box2 {
     background: lightcoral;
     grid-column: 2/4;
     grid-row: 1/2;
+    text-align: center;
 }
 
 .box3 {
     background: lightgreen;
     grid-column: 1/3;
     grid-row: 2/3;
+    text-align: center;
 }
 
 .box4 {
     background: lightgoldenrodyellow;
     grid-column: 3/4;
     grid-row: 2/4;
+    text-align: center;
 }
 
 .box5 {
     background: lightsalmon;
     grid-column: 1/3;
     grid-row: 3/5;
+    text-align: center;
 }
 
 .box6 {
     background: lightgray;
     grid-column: 3/4;
     grid-row: 4/5;
+    text-align: center;
 }
