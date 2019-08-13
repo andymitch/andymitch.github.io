@@ -19,9 +19,10 @@ body {
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    /*color: #f2f2f2;*/
+    color: red;
     text-align: center;
-    padding: 20px 14px 20px 16px;
+    padding: 20px 14px 20px 15px;
     text-decoration: none;
     font-size: 20px;
     height: auto;
@@ -63,7 +64,7 @@ body {
 #switch {
     float: right;
     display: block;
-    padding: 15px 15px 0 15px;
+    padding: 15px 15px 0 13px;
 }
 
 #switch:hover,
