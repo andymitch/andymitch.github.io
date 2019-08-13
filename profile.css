@@ -48,13 +48,13 @@ body {
     padding: 10px 16px !important;
 }
 
-.switch {
+#switch {
     float: right;
     display: block;
     padding: 10px 16px !important;
 }
 
-.switch i {
+#switch i {
     color: #bd1616;
 }
 
