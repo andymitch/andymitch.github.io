@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    transition: background .2s ease-in-out;
 }
 
 .margin {
@@ -12,6 +13,7 @@ body {
     position: sticky;
     top: 0;
     box-shadow: 0 0 10px black;
+    transition: background .2s ease-in;
 }
 
 .topnav a {
@@ -19,7 +21,8 @@ body {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0 16px;
+    padding-top: 14px;
     text-decoration: none;
     font-size: 17px;
 }
@@ -80,6 +83,7 @@ body {
     display: inline-block;
     width: 200px;
     padding: 8px;
+    height: auto;
     color: #fff;
     border: 1px solid #fff;
     text-align: center;
@@ -99,6 +103,7 @@ body {
 
 a {
     color: white;
+    height: 50px;
     transition: color .2s ease-out;
 }
 
@@ -109,4 +114,10 @@ a:hover {
 
 a:active {
     color: #444;
+}
+
+p,
+h1,
+h2 {
+    transition: color .2s ease;
 }
