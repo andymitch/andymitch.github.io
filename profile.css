@@ -13,7 +13,7 @@ body {
     position: sticky;
     top: 0;
     box-shadow: 0 0 12px black;
-    transition: background .2s ease-in;
+    transition: background .2s ease-in, box-shadow .2s ease-in;
 }
 
 .topnav a {
