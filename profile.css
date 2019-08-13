@@ -55,6 +55,7 @@ body {
 #pic:hover,
 #pic:active {
     background: inherit;
+    outline: none;
 }
 
 #picture {
