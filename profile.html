@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./profile.css" />
 </head>
 
-<body class="tinted-image">
+<body id="tinted-image">
     <div class="topnav">
         <a class="fire" href="#home"><i class='fab fa-free-code-camp' title="home" style="font-size:36px"></i></a>
         <a href="#about">About</a>
@@ -47,3 +47,39 @@
 </body>
 
 </html>
+<script>
+    let body = document.getElementById("tinted-image");
+    let nav = document.getElementsByClassName("topnav");
+    let h1 = document.getElementsByTagName("H1");
+    let h2 = document.getElementsByTagName("H2");
+    let p = document.getElementsByTagName("P");
+    let a = document.getElementsByTagName("A");
+    let i = document.getElementsByTagName("I");
+    let all = [h1, h2, p, a, i];
+
+    let onoff = true;
+    document.getElementById("switch").addEventListener("click", lightSwitch);
+
+    function lightSwitch() {
+        if (onoff) {
+            console.log("on");
+            for (tag of all) {
+                for (t of tag) {
+                    t.style.color = "#202020";
+                }
+            }
+            body.style.background = "white";
+            nav[0].style.background = "white";
+        } else {
+            console.log("off");
+            for (tag of all) {
+                for (t of tag) {
+                    t.style.color = "white";
+                }
+            }
+            body.style.background = "#202020";
+            nav[0].style.background = "#202020";
+        }
+        onoff = !onoff;
+    }
+</script>

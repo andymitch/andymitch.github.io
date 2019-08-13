@@ -9,7 +9,7 @@ body {
 .topnav {
     overflow: hidden;
     /*background: linear-gradient(to right, rgb(22, 22, 22) 40%, rgba(51, 51, 51, 0));*/
-    background: #181818;
+    background: #202020;
     position: sticky;
     top: 0;
     box-shadow: 0 0 10px black;
@@ -26,7 +26,7 @@ body {
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: rgb(245, 245, 245);
     color: black;
 }
 
@@ -35,11 +35,11 @@ body {
     color: white;
 }
 
-.tinted-image {
+#tinted-image {
     width: 100%;
     height: 100%;
     /*background: linear-gradient(rgba(2, 2, 2, 0.85), rgba(2, 2, 2, 0.05)), url(http://www.tophousemusicblog.com/wp-content/uploads/2015/12/tumblr_nyaccpXHcs1taybpjo2_r1_500.jpg);*/
-    background: #181818;
+    background: #202020;
     font-family: 'Lato', sans-serif;
     color: white;
     background-repeat: no-repeat;
@@ -88,10 +88,6 @@ body {
     color: #222;
     border: 1px solid #222;
     transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
-}
-
-p {
-    /*background: rgba(2, 2, 2, .2);*/
 }
 
 a {
