@@ -57,11 +57,11 @@
     let i = document.getElementsByTagName("I");
     let all = [h1, h2, p, a, i];
 
-    let onoff = true;
+    let light = true;
     document.getElementById("switch").addEventListener("click", lightSwitch);
 
     function lightSwitch() {
-        if (onoff) {
+        if (light) {
             console.log("on");
             for (tag of all) {
                 for (t of tag) {
@@ -80,6 +80,6 @@
             body.style.background = "#202020";
             nav[0].style.background = "#202020";
         }
-        onoff = !onoff;
+        light = !light;
     }
 </script>
