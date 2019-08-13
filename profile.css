@@ -21,10 +21,10 @@ body {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 0 16px;
-    padding-top: 14px;
+    padding: 20px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+    height: auto;
 }
 
 .topnav a:hover {
@@ -63,7 +63,7 @@ body {
 #switch {
     float: right;
     display: block;
-    padding: 6.5px 11px !important;
+    padding: 15px 15px 0 15px;
 }
 
 #switch:hover,
