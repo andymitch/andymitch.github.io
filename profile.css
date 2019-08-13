@@ -49,6 +49,7 @@ body {
 
 #pic {
     padding: 6.5px 11px;
+    height: auto;
 }
 
 #pic:hover,
@@ -59,7 +60,6 @@ body {
 
 #picture {
     border-radius: 50%;
-    height: auto;
 }
 
 #switch {
