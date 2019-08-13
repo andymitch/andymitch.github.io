@@ -63,7 +63,7 @@
 
     function lightSwitch() {
         if (light) {
-            console.log("on");
+            console.log("light mode set");
             for (tag of all) {
                 for (t of tag) {
                     t.style.color = "#202020";
@@ -73,7 +73,7 @@
             nav[0].style.background = "white";
             nav[0].style.boxShadow = "0 0 5px grey";
         } else {
-            console.log("off");
+            console.log("dark mode set");
             for (tag of all) {
                 for (t of tag) {
                     t.style.color = "white";
