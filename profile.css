@@ -12,7 +12,7 @@ body {
     background: #202020;
     position: sticky;
     top: 0;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 15px #080808;
     transition: background .2s ease-in;
 }
 
