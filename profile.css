@@ -44,8 +44,17 @@ body {
     background-size: 100%;
 }
 
-.fire {
+#pic {
     padding: 6.5px 11px !important;
+}
+
+#pic:hover,
+#pic:active {
+    background: inherit;
+}
+
+#picture {
+    border-radius: 50%;
 }
 
 #switch {
