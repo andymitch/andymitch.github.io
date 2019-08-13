@@ -7,6 +7,7 @@ body {
 }
 
 .topnav {
+    margin: 10px;
     overflow: hidden;
     background: #202020;
     position: sticky;
